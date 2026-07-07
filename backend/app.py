@@ -119,7 +119,6 @@ def get_history():
     return jsonify(history)
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
-
     try:
         with open(HISTORY_FILE, "r") as file:
             history = json.load(file)
@@ -131,7 +130,6 @@ def dashboard():
     positive = sum(1 for item in history if item["sentiment"] == "Positive")
     negative = sum(1 for item in history if item["sentiment"] == "Negative")
     neutral = sum(1 for item in history if item["sentiment"] == "Neutral")
-
     return jsonify({
         "total": total,
         "positive": positive,
@@ -139,58 +137,53 @@ def dashboard():
         "neutral": neutral,
         "history": history[-5:]
     })
-    @app.route("/clear_history", methods=["DELETE"])
-    def clear_history():
-        with open(HISTORY_FILE, "w") as file:
-            json.dump([], file)
-            return jsonify({
-        "message": "History Cleared Successfully"
+@app.route("/clear_history", methods=["DELETE"])
+def clear_history():
+    with open(HISTORY_FILE, "w") as file:
+        json.dump([], file)
+        return jsonify({
+            "message": "History Cleared Successfully"
     })
             
-    @app.route("/insights")
-    def insights():
-        try:
-            with open(HISTORY_FILE, "r") as file:
-                history = json.load(file)
-        except:
-            history = []
-
-    if len(history) == 0:
-        return jsonify({
+@app.route("/insights")
+def insights():
+    try:
+        with open(HISTORY_FILE, "r") as file:
+            history = json.load(file)
+    except:
+        history = []
+        if len(history) == 0:
+            return jsonify({
             "top_category": "-",
             "top_sentiment": "-",
             "bot_alerts": 0,
             "last_analysis": "-"
         })
-
-    from collections import Counter
-
-    category_counter = Counter(
+        from collections import Counter
+        category_counter = Counter(
         item.get("category", "Unknown")
-        for item in history
-    )
-
-    sentiment_counter = Counter(
+        for item in history)
+        
+        sentiment_counter = Counter(
         item.get("sentiment", "Unknown")
         for item in history
-    )
-
-    bot_alerts = sum(
+        )
+        bot_alerts = sum(
         1
         for item in history
         if int(str(item.get("bot_probability", "0")).replace("%", "")) > 50
-    )
-
-    return jsonify({
+        )
+        
+        return jsonify({
         "top_category": category_counter.most_common(1)[0][0],
         "top_sentiment": sentiment_counter.most_common(1)[0][0],
         "bot_alerts": bot_alerts,
         "last_analysis": history[-1]["timestamp"]
-    })
+        })
     
-    @app.route("/register", methods=["POST"])
-    def register():
-        data = request.get_json()
+@app.route("/register", methods=["POST"])
+def register():
+    data = request.get_json()
 
     name = data.get("name")
     email = data.get("email")
@@ -236,35 +229,7 @@ def login():
         "success": False,
         "message": "Invalid email or password."
     }), 401
-
-
     
-@app.route("/dashboard", methods=["GET"])
-def dashboard():
-
-    try:
-        with open(HISTORY_FILE, "r") as file:
-            history = json.load(file)
-    except:
-        history = []
-
-    total = len(history)
-
-    positive = sum(
-        1 for item in history
-        if item["sentiment"] == "Positive"
-    )
-
-    negative = sum(
-        1 for item in history
-        if item["sentiment"] == "Negative"
-    )
-
-    neutral = sum(
-        1 for item in history
-        if item["sentiment"] == "Neutral"
-    )
-
     return jsonify({
         "total": total,
         "positive": positive,
@@ -272,8 +237,6 @@ def dashboard():
         "neutral": neutral,
         "history": history[-5:]
     })
-    
-    import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
