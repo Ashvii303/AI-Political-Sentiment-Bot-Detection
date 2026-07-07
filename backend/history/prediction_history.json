@@ -1,0 +1,121 @@
+[
+    {
+        "text": "The economy is improving rapidly.",
+        "sentiment": "Negative",
+        "confidence": 50.05,
+        "timestamp": "2026-07-04 14:14:10"
+    },
+    {
+        "text": "The government has successfully improved healthcare facilities across the country.",
+        "sentiment": "Positive",
+        "confidence": 76.16,
+        "timestamp": "2026-07-04 19:38:27"
+    },
+    {
+        "text": "The new education policy has created excellent opportunities for students.",
+        "sentiment": "Positive",
+        "confidence": 93.29,
+        "timestamp": "2026-07-04 19:38:49"
+    },
+    {
+        "text": "Corruption has severely damaged the country's economy.\n",
+        "sentiment": "Negative",
+        "confidence": 85.72,
+        "timestamp": "2026-07-04 19:39:10"
+    },
+    {
+        "text": "The election will be conducted next month according to the schedule.\n",
+        "sentiment": "Negative",
+        "confidence": 55.85,
+        "timestamp": "2026-07-04 19:39:26"
+    },
+    {
+        "text": "The election will be conducted next month according to the schedule.\n",
+        "sentiment": "Negative",
+        "confidence": 55.85,
+        "timestamp": "2026-07-04 19:39:28"
+    },
+    {
+        "text": "The administration announced several welfare schemes for farmers.",
+        "sentiment": "Negative",
+        "confidence": 50.47,
+        "timestamp": "2026-07-04 19:39:50"
+    },
+    {
+        "text": "The administration announced several welfare schemes for farmers.",
+        "sentiment": "Negative",
+        "confidence": 50.47,
+        "timestamp": "2026-07-04 19:39:51"
+    },
+    {
+        "text": "The administration announced several welfare schemes for farmers.",
+        "sentiment": "Negative",
+        "confidence": 50.47,
+        "timestamp": "2026-07-04 19:39:54"
+    },
+    {
+        "text": "The administration announced several welfare schemes for farmers.",
+        "sentiment": "Negative",
+        "confidence": 50.47,
+        "timestamp": "2026-07-04 19:39:55"
+    },
+    {
+        "text": "The new education policy has created excellent opportunities for students.",
+        "sentiment": "Positive",
+        "confidence": 93.29,
+        "timestamp": "2026-07-04 19:40:11"
+    },
+    {
+        "text": "\"The new education policy has created excellent opportunities for students.\"",
+        "sentiment": "Positive",
+        "confidence": 93.29,
+        "timestamp": "2026-07-04 19:49:11"
+    },
+    {
+        "text": "\"The new education policy has created excellent opportunities for students.\"",
+        "sentiment": "Positive",
+        "confidence": 93.29,
+        "timestamp": "2026-07-04 19:49:13"
+    },
+    {
+        "text": "\"The new education policy has created excellent opportunities for students.\"",
+        "sentiment": "Positive",
+        "confidence": 93.29,
+        "timestamp": "2026-07-04 19:49:14"
+    },
+    {
+        "text": "The government increased funding for public hospitals.",
+        "sentiment": "Negative",
+        "category": "Healthcare",
+        "confidence": 71.65,
+        "timestamp": "2026-07-04 23:03:41"
+    },
+    {
+        "text": "The government increased funding for public hospitals.",
+        "sentiment": "Negative",
+        "category": "Healthcare",
+        "confidence": 71.65,
+        "timestamp": "2026-07-05 11:13:57"
+    },
+    {
+        "text": "The government launched a new healthcare policy for rural hospitals.",
+        "sentiment": "Positive",
+        "category": "Healthcare",
+        "confidence": 57.37,
+        "timestamp": "2026-07-05 11:38:59"
+    },
+    {
+        "text": "WIN \u20b950000 TODAY!!!!\n\nCLICK HERE NOW!!!!\n\nhttp://free-money.com\n\nFREE FREE FREE!!!!",
+        "sentiment": "Positive",
+        "category": "General Politics",
+        "confidence": 89.01,
+        "timestamp": "2026-07-05 11:40:48"
+    },
+    {
+        "text": "The government launched a new education policy to improve schools.",
+        "sentiment": "Positive",
+        "category": "Education",
+        "confidence": 76.11,
+        "timestamp": "2026-07-05 23:14:44"
+    }
+]
