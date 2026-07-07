@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 import "../styles/Login.css";
 
 function Login() {
@@ -19,8 +19,8 @@ function Login() {
 
     try {
 
-      const response = await axios.post(
-        "http://127.0.0.1:5001/login",
+      const response = await api.post(
+        "/login",
         {
           email,
           password,

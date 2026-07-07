@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import "../styles/History.css";
 import Sidebar from "../components/Sidebar";
 
@@ -15,7 +15,7 @@ function History() {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/history");
+      const response = await api.get("/history");
       setHistory(response.data.reverse());
     } catch (error) {
       console.error("Error fetching history:", error);

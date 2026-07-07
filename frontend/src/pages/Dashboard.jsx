@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 import DashboardChart from "../components/DashboardChart";
@@ -32,7 +32,7 @@ function Dashboard() {
 
   const fetchDashboard = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/dashboard");
+      const response = await api.get("/dashboard");
       setStats(response.data);
     } catch (error) {
       console.error("Error loading dashboard:", error);

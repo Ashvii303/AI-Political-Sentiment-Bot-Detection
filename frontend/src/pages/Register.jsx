@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 import "../styles/Login.css";
 
 function Register() {
@@ -20,9 +20,7 @@ function Register() {
 
     try {
 
-      const response = await axios.post(
-        "http://127.0.0.1:5001/register",
-        {
+      const response = await api.post("/register", {
           name,
           email,
           password,

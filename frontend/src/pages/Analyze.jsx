@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import "../styles/Analyze.css";
 
 function Analyze() {
@@ -10,8 +10,8 @@ function Analyze() {
 
   const analyzeText = async () => {
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:5000/predict",
+      const response = await api.post(
+        "/analyze",
         {
           text: text,
         }
