@@ -238,14 +238,6 @@ def login():
     }), 401
 
 
-# -----------------------------
-# Run App
-# -----------------------------
-import os
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
     
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
@@ -280,5 +272,15 @@ def dashboard():
         "neutral": neutral,
         "history": history[-5:]
     })
+    
+    import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False
+    )
     
     
