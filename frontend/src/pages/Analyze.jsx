@@ -11,7 +11,7 @@ function Analyze() {
   const analyzeText = async () => {
     try {
       const response = await api.post(
-        "/analyze",
+        "/predict",
         {
           text: text,
         }

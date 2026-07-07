@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 import "../styles/DashboardChart.css";
 
@@ -30,11 +30,10 @@ function DashboardChart() {
   const fetchChartData = async () => {
     try {
 
-      const response = await axios.get("http://127.0.0.1:5000/dashboard");
+      const response = await api.get("/dashboard");
 
-      const history = response.data.history;
+      const history = response.data.history || [];
 
-      // Line Chart
       const line = history.map((item, index) => ({
         day: index + 1,
         sentiment: item.confidence
@@ -42,7 +41,6 @@ function DashboardChart() {
 
       setLineData(line);
 
-      // Pie Chart
       setPieData([
         {
           name: "Positive",
@@ -59,23 +57,23 @@ function DashboardChart() {
       ]);
 
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
   if (lineData.length === 0) {
+    return (
+      <div className="chart-card empty-dashboard">
+        <h2>📊 No Analysis Available</h2>
+        <p>Start by analyzing political text to view dashboard statistics.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="chart-card empty-dashboard">
-      <h2>📊 No Analysis Available</h2>
-      <p>Start by analyzing political text to view dashboard statistics.</p>
-    </div>
-  );
-}
+    <div className="chart-grid">
 
-return (
-  <div className="chart-grid">
-
-    <div className="chart-card">
+      <div className="chart-card">
 
         <h3>📈 Political Sentiment Trend</h3>
 
@@ -101,9 +99,7 @@ return (
         <h3>Sentiment Distribution</h3>
 
         <ResponsiveContainer width="100%" height={300}>
-
           <PieChart>
-
             <Pie
               data={pieData}
               cx="50%"
@@ -119,11 +115,8 @@ return (
                 />
               ))}
             </Pie>
-
             <Tooltip />
-
           </PieChart>
-
         </ResponsiveContainer>
 
       </div>
